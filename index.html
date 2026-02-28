@@ -94,7 +94,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin: -20px 0 15px 0; /* Margen negativo para que monte un poco sobre la imagen, da un toque Élite */
+            margin: -20px 0 15px 0;
             position: relative;
             z-index: 10;
         }
@@ -146,9 +146,33 @@
         .social-btn svg { width: 24px; height: 24px; fill: #fff; transition: 0.3s; }
         .social-btn:hover svg { fill: var(--gold); }
 
+        /* --- OPTIMIZACIÓN MÓVIL (Nuevos ajustes) --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 3.5rem; }
+            .nav-links { display: none; } /* Mantenemos oculto como pediste originalmente */
+            
+            /* Ajustes del Hero y Secciones para que no se vea aplastado */
+            .hero { min-height: 70vh; padding: 0 15px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 10px; letter-spacing: 3px; }
+            section { padding: 60px 5%; }
+            .section-title { font-size: 24px; }
+            
+            /* Ajuste de Grids para mantener 2 columnas o adaptar bien el ancho */
+            .grid-4 { grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }
+            .card { padding: 15px; }
+            .card img { height: auto; aspect-ratio: 1; }
+            .member-list { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+            
+            /* Ajuste del Modal para que el padding no asfixie el contenido en móviles */
+            .modal-content { padding: 30px 20px; border-radius: 15px; }
+            .close-modal { top: 10px; right: 15px; font-size: 35px; }
+            
+            /* Botón flotante un poco más discreto y ajustado en móviles */
+            .badge-btn { bottom: 20px; left: 20px; width: 50px; height: 50px; font-size: 20px; }
+            
+            /* Ajuste de insignias en el modal */
+            .insignia-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+            .insignia-item { padding: 15px 10px; }
         }
     </style>
 </head>
